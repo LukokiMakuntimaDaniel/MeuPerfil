@@ -15,12 +15,13 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
-
+    <link rel="stylesheet" href="style/animar.css">
 
 
 </head>
 
 <body>
+    
     <header class="header">
         <div class="img">
             <div class="borderImg">
@@ -28,7 +29,7 @@
             </div>
         </div>
 
-        <div>
+        <div class="animated" style="animation-name: slideLeft;">
             <div>
                 <h1>Lukoki Daniel</h1>
             </div>
@@ -60,53 +61,59 @@
                     </div>
                 </div>
 
+                <div>
+                    <div>
+                        <span>Telefone</span>
+                    </div>
+                </div>
+
             </div>
         </div>
     </header>
 
-    <section class="biografia">
+    <section class="biografia animated" style="animation-name: slideLeft;">
         <h2>Biografia</h2>
         <p>
             Minha Biografia
         </p>
     </section>
 
-    <div class="meuForm">
+    <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Formulário</h2>
         <form action="">
             <div class="row">
                 <div class="col-sm-6">
-                    <label for="">Nome: </label>
+                    <label for="" class="form-label">Nome: </label>
                     <input type="text" class="form-control shadow-none" placeholder="Nome do Usuario">
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="">Idade</label>
+                    <label for="" class="form-label">Idade</label>
                     <input type="number" class="form-control shadow-none" placeholder="Idade">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="" class="form-label">Rua: </label>
-                    <input type="text" placeholder="Rua" class="form-control shadow-none">
+                    <label for="rua" class="form-label">Rua: </label>
+                    <input type="text" placeholder="Rua" class="form-control shadow-none" id="rua">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="" class="form-label">Bairro</label>
-                    <input type="text" placeholder="Bairro" class="form-control shadow-none">
+                    <label for="bairro" class="form-label">Bairro</label>
+                    <input type="text" placeholder="Bairro" class="form-control shadow-none" id="bairro"> 
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <label for="" class="form-label">Estado: </label>
-                    <input type="text" placeholder="Estado" class="form-control">
+                    <label for="estado" class="form-label">Estado: </label>
+                    <input type="text" placeholder="Estado" class="form-control" id="estado">
                 </div>
 
                 <div class="col-md-6">
-                    <label for="" class="form-label">Telemovel</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Telemovel" required />
+                    <label for="telemovel" class="form-label">Telemovel</label>
+                    <input type="number" class="form-control shadow-none" placeholder="Telemovel" id="telemovel"/>
                 </div>
             </div>
 
