@@ -26,15 +26,15 @@ function iniciar() {
 }
 
 function actualizarDados() {
-    usuario = JSON.parse(localStorage.getItem("usuario"))
-    usuario.nome = (document.getElementById("nomeInput").value) ? document.getElementById("nomeInput").value : (usuario) ? usuario.nome : ""
-    usuario.idade = (document.getElementById("idadeInput").value) ? document.getElementById("idadeInput").value : (usuario) ? usuario.nome : ""
-    usuario.rua = (document.getElementById("ruaInput").value) ? document.getElementById("ruaInput").value : (usuario) ? usuario.nome : ""
-    usuario.bairro = (document.getElementById("bairroInput").value) ? document.getElementById("bairroInput").value : (usuario) ? usuario.nome : ""
-    usuario.estado = (document.getElementById("estadoInput").value) ? document.getElementById("estadoInput").value : (usuario) ? usuario.nome : ""
-    usuario.biografia = (document.getElementById("rua").value) ? document.getElementById("rua").value : (usuario) ? usuario.nome : ""
-    usuario.telefone = (document.getElementById("telemovelInput").value) ? document.getElementById("telemovelInput").value : (usuario) ? usuario.nome : ""
-    usuario.biografia = (document.getElementById("biografiaInput").value) ? document.getElementById("biografiaInput").value : (usuario) ? usuario.nome : ""
+    usuarioCorrente = JSON.parse(localStorage.getItem("usuario"))
+    usuario.nome = (document.getElementById("nomeInput").value) ? document.getElementById("nomeInput").value : (usuarioCorrente) ? usuarioCorrente.nome : ""
+    usuario.idade = (document.getElementById("idadeInput").value) ? document.getElementById("idadeInput").value : (usuarioCorrente) ? usuarioCorrente.idade : ""
+    usuario.rua = (document.getElementById("ruaInput").value) ? document.getElementById("ruaInput").value : (usuarioCorrente) ? usuarioCorrente.rua : ""
+    usuario.bairro = (document.getElementById("bairroInput").value) ? document.getElementById("bairroInput").value : (usuarioCorrente) ? usuarioCorrente.bairro : ""
+    usuario.estado = (document.getElementById("estadoInput").value) ? document.getElementById("estadoInput").value : (usuarioCorrente) ? usuarioCorrente.estado : ""
+    usuario.biografia = (document.getElementById("rua").value) ? document.getElementById("rua").value : (usuarioCorrente) ? usuarioCorrente.rua : ""
+    usuario.telefone = (document.getElementById("telemovelInput").value) ? document.getElementById("telemovelInput").value : (usuarioCorrente) ? usuarioCorrente.telefone : ""
+    usuario.biografia = (document.getElementById("biografiaInput").value) ? document.getElementById("biografiaInput").value : (usuarioCorrente) ? usuarioCorrente.biografia : ""
 
     let imagemValue = document.getElementById("img_p").value;
     if (imagemValue) {
@@ -52,6 +52,5 @@ function actualizarDados() {
         localStorage.setItem('usuario', usuarioString);
         iniciar()
     }
-
 
 }
