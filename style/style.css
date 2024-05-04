@@ -9,12 +9,14 @@
     --border_color: #aacbfc;
 }
 
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 
 .header {
     display: flex;
@@ -62,4 +64,51 @@ body {
     color: #444;
     width: 100%;
     max-width: 1024px;
+}
+
+.meuForm {
+    width: 100%;
+    max-width: 1024px;
+    background-color: #fff;
+    padding: 20px;
+    line-height: 30px;
+    color: #444;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.meuForm>form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.meuForm>h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.formItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formItem>input {
+    padding: 10px;
+    width: 300px;
+}
+
+.btn_salvar {
+    background: linear-gradient(to right, #298FFA, #aacbfc);
+    color: #fff;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
 }
