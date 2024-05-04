@@ -133,9 +133,36 @@ header h1 {
 .minha_imagem:hover {
     background-color: #7a81d1;
 }
- 
+
 .buscarImagem {
     display: none;
 }
 
 
+
+
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .borderImg {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .dados {
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .biografia {
+        background-color: #fff;
+        padding: 20px;
+        line-height: 30px;
+        color: #444;
+    }
+}
