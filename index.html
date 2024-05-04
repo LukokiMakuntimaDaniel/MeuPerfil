@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    
+
     <header class="header">
         <div class="img">
             <div class="borderImg">
@@ -80,42 +80,47 @@
 
     <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Formulário</h2>
-        <form action="">
+        <form>
             <div class="row">
                 <div class="col-sm-6">
                     <label for="" class="form-label">Nome: </label>
-                    <input type="text" class="form-control shadow-none" placeholder="Nome do Usuario">
+                    <input type="text" class="form-control shadow-none" placeholder="Nome do Usuario" id="nomeInput">
                 </div>
 
                 <div class="col-sm-6">
                     <label for="" class="form-label">Idade</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Idade">
+                    <input type="number" class="form-control shadow-none" placeholder="Idade" id="idadeInput">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
                     <label for="rua" class="form-label">Rua: </label>
-                    <input type="text" placeholder="Rua" class="form-control shadow-none" id="rua">
+                    <input type="text" placeholder="Rua" class="form-control shadow-none" id="ruaInput">
                 </div>
 
                 <div class="col-md-6">
                     <label for="bairro" class="form-label">Bairro</label>
-                    <input type="text" placeholder="Bairro" class="form-control shadow-none" id="bairro"> 
+                    <input type="text" placeholder="Bairro" class="form-control shadow-none" id="bairroInput">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
                     <label for="estado" class="form-label">Estado: </label>
-                    <input type="text" placeholder="Estado" class="form-control" id="estado">
+                    <input type="text" placeholder="Estado" class="form-control" id="estadoInput">
                 </div>
 
                 <div class="col-md-6">
                     <label for="telemovel" class="form-label">Telemovel</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Telemovel" id="telemovel"/>
+                    <input type="number" class="form-control shadow-none" placeholder="Telemovel" id="telemovelInput" />
                 </div>
             </div>
+
+                <div class="col-md-6 text-center">
+                    <textarea class="form-control"  placeholder="Biografia" id="biografiaInput"></textarea>
+                </div>
+         
 
             <label for="img_p" class="minha_imagem"><i class="fa-regular fa-image"></i>Escolha uma Imagem</label>
             <input type="file" class="buscarImagem" id="img_p">
@@ -124,8 +129,8 @@
 
         </form>
     </div>
-    
-<script src="./js/js.js"></script>
+
+    <script src="./js/js.js"></script>
 </body>
 
 </html>
