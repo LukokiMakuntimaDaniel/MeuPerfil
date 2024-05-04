@@ -9,7 +9,12 @@
     --border_color: #aacbfc;
 }
 
-
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
 .header {
     display: flex;
