@@ -14,7 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
+}
 
 .header {
     display: flex;
@@ -33,23 +33,33 @@ body {
     height: 200px;
     padding: 10px;
     background-color: #fff;
-  }
+}
 
-  .borderImg > img {
+.borderImg>img {
     width: 100%;
     border-radius: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  }
-  
-  .borderImg > img:hover {
-      cursor: pointer;
-      transition: all 2s;
-      transform: scale(1.6); 
-  }
+}
 
-  .dados {
+.borderImg>img:hover {
+    cursor: pointer;
+    transition: all 2s;
+    transform: scale(1.6);
+}
+
+.dados {
     display: flex;
     gap: 20px;
     margin-top: 20px;
     color: #fff;
-  }
+}
+
+
+.biografia {
+    background-color: #eff6ff;
+    padding: 20px;
+    line-height: 30px;
+    color: #444;
+    width: 100%;
+    max-width: 1024px;
+}
