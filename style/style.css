@@ -46,3 +46,10 @@ body {
       transition: all 2s;
       transform: scale(1.6); 
   }
+
+  .dados {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    color: #fff;
+  }
