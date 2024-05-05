@@ -16,9 +16,9 @@ class Moradas extends Migration
         Schema::create("moradas",function(Blueprint $table){
             $table->id();
             $table->foreignId("usuario_id");
-            $table->string("rua");
-            $table->string("bairro");
-            $table->string("estado");
+            $table->string("rua",50);
+            $table->string("bairro",50);
+            $table->string("estado",50);
             $table->foreign("usuario_id")->references("id")->on("usuarios");
         });
     }
