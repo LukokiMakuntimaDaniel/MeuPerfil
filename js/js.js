@@ -4,7 +4,6 @@ iniciar();
 //funcão que inicializa os campus dos inputs
 
 function iniciar() {
-
     usuario = JSON.parse(localStorage.getItem("usuario"))
     if (usuario) {
         document.getElementById("nome").innerHTML = usuario.nome
@@ -15,6 +14,14 @@ function iniciar() {
         document.getElementById("telefone").innerHTML = usuario.telefone
         document.getElementById("biografia").innerHTML = usuario.biografia
         document.getElementById("imagem").src = usuario.imagem
+
+        document.getElementById("nomeInput").value = usuario.nome
+        document.getElementById("idadeInput").value = usuario.idade
+        document.getElementById("ruaInput").value = usuario.rua
+        document.getElementById("bairroInput").value = usuario.bairro
+        document.getElementById("estadoInput").value = usuario.estado
+        document.getElementById("biografiaInput").value = usuario.biografia
+        document.getElementById("telemovelInput").value=usuario.telefone
     } else {
         usuario = new Object();
         usuario.nome = "";
@@ -37,11 +44,9 @@ function actualizarDados() {
     usuario.rua = (document.getElementById("ruaInput").value) ? document.getElementById("ruaInput").value : (usuarioCorrente) ? usuarioCorrente.rua : ""
     usuario.bairro = (document.getElementById("bairroInput").value) ? document.getElementById("bairroInput").value : (usuarioCorrente) ? usuarioCorrente.bairro : ""
     usuario.estado = (document.getElementById("estadoInput").value) ? document.getElementById("estadoInput").value : (usuarioCorrente) ? usuarioCorrente.estado : ""
-    usuario.biografia = (document.getElementById("rua").value) ? document.getElementById("rua").value : (usuarioCorrente) ? usuarioCorrente.rua : ""
     usuario.telefone = (document.getElementById("telemovelInput").value) ? document.getElementById("telemovelInput").value : (usuarioCorrente) ? usuarioCorrente.telefone : ""
     usuario.biografia = (document.getElementById("biografiaInput").value) ? document.getElementById("biografiaInput").value : (usuarioCorrente) ? usuarioCorrente.biografia : ""
 
-  
     let imagemValue = document.getElementById("img_p").value;
     if (imagemValue) {
         //carregar as imagens
@@ -61,5 +66,7 @@ function actualizarDados() {
         $("#modalSucesso").modal("show")
         iniciar()
     }
-
 }
+
+
+

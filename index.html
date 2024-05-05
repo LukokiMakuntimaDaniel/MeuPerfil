@@ -83,8 +83,8 @@
         <form>
             <div class="row">
                 <div class="col-sm-6">
-                    <label for="" class="form-label">Nome: </label>
-                    <input type="text" class="form-control shadow-none" placeholder="Nome do Usuario" id="nomeInput">
+                    <label for="" class="form-label">Nome Completo: </label>
+                    <input type="text" class="form-control shadow-none" placeholder="Nome do Usuario" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/">
                 </div>
 
                 <div class="col-sm-6">
@@ -124,7 +124,7 @@
             <label for="img_p" class="minha_imagem"><i class="fa-regular fa-image"></i>Escolha uma Imagem</label>
             <input type="file" class="buscarImagem" id="img_p">
 
-            <button class="shadow-none btn_salvar" onclick="actualizarDados()" type="button"> Salvar</button>
+            <button  class="shadow-none btn_salvar" onclick="actualizarDados()" type="button"> Salvar</button>
 
         </form>
     </div>
