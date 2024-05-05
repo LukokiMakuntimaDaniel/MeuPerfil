@@ -1,4 +1,4 @@
-iniciar();
+//iniciar();
 
 
 // Inicializa os campos do formulário com os dados do usuário, se existirem

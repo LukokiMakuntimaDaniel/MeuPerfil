@@ -29,39 +29,66 @@
 
         <div class="animated" style="animation-name: slideLeft;">
             <div>
-                <h1 id="nome">Nome</h1>
+                <h1 id="nome">
+                    @if(isset($meusDados) && isset($meusDados->nome))
+                    {{$meusDados->nome}}
+                    @else
+                    Nome
+                    @endif
+                </h1>
             </div>
 
             <div class="dados">
                 <div>
                     <div>
-                        <span id="idade">Idade</span>
+                        @if(isset($meusDados) && isset($meusDados->idade))
+                        <span id="idade"> {{$meusDados->idade}}</span>
+                        @else
+                        Idade
+                        @endif
+
                     </div>
                 </div>
 
                 <div>
                     <div>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span id="estado">Estado</span>
+                        @if(isset($meusDados) && isset($meusDados->morada))
+                        <span id="estado"> {{$meusDados->morada->estado}}</span>
+                        @else
+                        Estado
+                        @endif
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <span id="rua">Rua</span>
+                        @if(isset($meusDados) && isset($meusDados->morada))
+                        <span id="rua"> {{$meusDados->morada->rua}}</span>
+                        @else
+                        Rua
+                        @endif
                     </div>
 
                 </div>
 
                 <div>
                     <div>
-                        <span id="bairro">Bairro</span>
+                        @if(isset($meusDados) && isset($meusDados->morada))
+                        <span id="bairro"> {{$meusDados->morada->bairro}}</span>
+                        @else
+                        Bairro
+                        @endif
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <span id="telefone">Telefone</span>
+                        @if(isset($meusDados) && isset($meusDados->telefone))
+                        <span id="telefone"> {{$meusDados->telefone}}</span>
+                        @else
+                        Telefone
+                        @endif
                     </div>
                 </div>
 
@@ -80,6 +107,12 @@
         @if (session('error'))
         <div class="alert alert-danger">
             {{ session('error') }}
+        </div>
+        @endif
+
+        @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
         @endif
 
