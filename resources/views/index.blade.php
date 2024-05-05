@@ -78,17 +78,17 @@
 
     <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Edite os Seus Dados</h2>
-        <form id="meuFormulario">
+        <form id="meuFormulario" >
             <div class="row">
                 <div class="col-sm-6">
                     <label for="" class="form-label">Nome Completo: </label>
-                    <input type="text" onkeyup="validacao(this)" class="form-control shadow-none" placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/">
+                    <input type="text" onkeyup="validacao(this)" class="form-control shadow-none" placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/" name="nome">
                     <div class="invalid-feedback">Precisamos nome válido e completo</div>
                 </div>
 
                 <div class="col-sm-6">
                     <label for="" class="form-label">Idade</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput" onkeyup="validacao(this)">
+                    <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput" onkeyup="validacao(this)" name="idade">
                     <div class="invalid-feedback">Idade Não Pode estar vazia</div>
                 </div>
             </div>
@@ -96,13 +96,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="rua" class="form-label">Rua: </label>
-                    <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput" onkeyup="validacao(this)" name="rua">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
 
                 <div class="col-md-6">
                     <label for="bairro" class="form-label">Bairro</label>
-                    <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)" name="bairro">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
             </div>
@@ -110,19 +110,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="estado" class="form-label">Estado: </label>
-                    <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)" name="estado">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
 
                 <div class="col-md-6">
                     <label for="telemovel" class="form-label">Telemovel</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)" />
+                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)"  name="telefone"/>
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
             </div>
 
             <div class="col-md-6 text-center">
-                <textarea class="form-control" placeholder="Biografia*" id="biografiaInput" onkeyup="validacao(this)"></textarea>
+                <textarea class="form-control" placeholder="Biografia*" id="biografiaInput" onkeyup="validacao(this)" name="biografia"></textarea>
                 <div class="invalid-feedback">Campo Obrigatório</div>
             </div>
 
