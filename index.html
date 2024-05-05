@@ -80,17 +80,19 @@
 
     <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Edite os Seus Dados</h2>
-        <form>
+        <form id="meuFormulario">
             <div class="row">
                 <div class="col-sm-6">
                     <label for="" class="form-label">Nome Completo: </label>
-                    <input type="text" onkeyup="validacao(this)" class="form-control shadow-none" placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/">
+                    <input type="text" onkeyup="validacao(this)" class="form-control shadow-none"
+                        placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/">
                     <div class="invalid-feedback">Precisamos nome válido e completo</div>
                 </div>
 
                 <div class="col-sm-6">
                     <label for="" class="form-label">Idade</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput" onkeyup="validacao(this)">
+                    <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput"
+                        onkeyup="validacao(this)">
                     <div class="invalid-feedback">Idade Não Pode estar vazia</div>
                 </div>
             </div>
@@ -98,13 +100,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="rua" class="form-label">Rua: </label>
-                    <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput"
+                        onkeyup="validacao(this)">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
 
                 <div class="col-md-6">
                     <label for="bairro" class="form-label">Bairro</label>
-                    <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput"
+                        onkeyup="validacao(this)">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
             </div>
@@ -112,26 +116,34 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="estado" class="form-label">Estado: </label>
-                    <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)">
+                    <input type="text" placeholder="Estado*" class="form-control" id="estadoInput"
+                        onkeyup="validacao(this)">
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
 
                 <div class="col-md-6">
                     <label for="telemovel" class="form-label">Telemovel</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)" />
+                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput"
+                        onkeyup="validacao(this)" />
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
             </div>
 
             <div class="col-md-6 text-center">
-                <textarea class="form-control" placeholder="Biografia*" id="biografiaInput" onkeyup="validacao(this)"></textarea>
+                <textarea class="form-control" placeholder="Biografia*" id="biografiaInput"
+                    onkeyup="validacao(this)"></textarea>
                 <div class="invalid-feedback">Campo Obrigatório</div>
             </div>
 
-            <label for="img_p" class="minha_imagem"><i class="fa-regular fa-image"></i>Escolha uma Imagem</label>
-            <input type="file" class="buscarImagem" id="img_p">
+            <div>
+                <label for="img_p" class="minha_imagem"><i class="fa-regular fa-image"></i>Escolha uma Imagem</label>
+                <input type="file" class="buscarImagem" id="img_p">
+            </div>
 
-            <button  class="shadow-none btn_salvar" onclick="actualizarDados()" type="button" > Salvar</button>
+
+
+            <button class="shadow-none btn_salvar" onclick="verificarAvalidacaoParaAactualizacao()" type="button">
+                Salvar</button>
 
         </form>
     </div>
@@ -147,7 +159,8 @@
                     As suas atualizações foram feitas com sucesso.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color:  #7a81d1;">Fechar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        style="background-color:  #7a81d1;">Fechar</button>
                 </div>
             </div>
         </div>

@@ -21,7 +21,8 @@ function iniciar() {
         document.getElementById("bairroInput").value = usuario.bairro
         document.getElementById("estadoInput").value = usuario.estado
         document.getElementById("biografiaInput").value = usuario.biografia
-        document.getElementById("telemovelInput").value=usuario.telefone
+        document.getElementById("telemovelInput").value = usuario.telefone
+        document.getElementById("img_p").value = usuario.imagem
     } else {
         usuario = new Object();
         usuario.nome = "";
@@ -68,27 +69,46 @@ function actualizarDados() {
     }
 }
 
-function validacao(element){
-    if(element.getAttribute("id")=="nomeInput"){
-        let regex = /^[A-Za-z]+\s[A-Za-z]+$/;
-        let nome =element.value;
-        if(!regex.test(nome)){
+//permitir a validação de cada campo
+function validacao(element) {
+    if (element.getAttribute("id") == "nomeInput") {
+        //expressão regular para validar o nome completo. ou seja o nome não deve contar numeros e deve conter espaço para garintir que o nome seje completo
+        let regex = /^[A-Za-z]+\s[A-Za-z]+$/; 
+        let nome = element.value;
+        if (!regex.test(nome)) {
             element.classList.add('is-invalid');
             return false;
-        }else{
+        } else {
             element.classList.remove('is-invalid');
             return true;
         }
-    }else{
-        if(element.value==null || element.value==""){
+    } else {
+        if (element.value == null || element.value == "") {
             element.classList.add('is-invalid');
             return false
-        }else{
+        } else {
             element.classList.remove('is-invalid');
             return true
         }
     }
     return false;
+}
+
+function verificarAvalidacaoParaAactualizacao() {
+    let meuFormulario = document.getElementById('meuFormulario');
+    let inputs = meuFormulario.querySelectorAll('input:not([type="file"]),textarea');
+    let valido=true;
+    inputs.forEach(function(input) {
+        if(!validacao(input)){
+            valido=false;
+        }
+    });
+
+    console.log(valido)
+    if(valido){
+        actualizarDados();
+    }
+   
 }
 
 
