@@ -78,7 +78,14 @@
 
     <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Edite os Seus Dados</h2>
-        <form id="meuFormulario">
+        @if($meusDados)
+        <form id="meuFormulario" action="{{route('usuario.update')}}" method="put">
+            @method('PUT')
+        @else
+        <form id="meuFormulario" action="{{route('usuario.store')}}" method="post">
+        @endif
+             @csrf
+
             <div class="row">
                 <div class="col-sm-6">
                     <label for="" class="form-label">Nome Completo: </label>
@@ -116,7 +123,7 @@
 
                 <div class="col-md-6">
                     <label for="telemovel" class="form-label">Telemovel</label>
-                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)"  name="telefone"/>
+                    <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)" name="telefone" />
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
             </div>
@@ -131,11 +138,10 @@
                 <input type="file" class="buscarImagem" id="img_p">
             </div>
 
-
-
             <button class="shadow-none btn_salvar" onclick="verificarAvalidacaoParaAactualizacao()" type="button">Salvar</button>
 
         </form>
+
     </div>
 
     <div class="modal fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="modalSucessoLabel" aria-hidden="true">

@@ -105,6 +105,7 @@ function verificarAvalidacaoParaAactualizacao() {
     });
 
     if(valido){
+
         actualizarDados();
     }
 
