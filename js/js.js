@@ -68,5 +68,31 @@ function actualizarDados() {
     }
 }
 
+function validacao(element){
+    if(element.getAttribute("id")=="nomeInput"){
+        let regex = /^[A-Za-z]+\s[A-Za-z]+$/;
+        let nome =element.value;
+        if(!regex.test(nome)){
+            element.classList.add('is-invalid');
+            return false;
+        }else{
+            element.classList.remove('is-invalid');
+            return true;
+        }
+    }else{
+        if(element.value==null || element.value==""){
+            element.classList.add('is-invalid');
+            return false
+        }else{
+            element.classList.remove('is-invalid');
+            return true
+        }
+    }
+    return false;
+}
+
+
+
+
 
 
