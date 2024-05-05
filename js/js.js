@@ -1,8 +1,7 @@
 iniciar();
 
 
-//funcão que inicializa os campus dos inputs
-
+// Inicializa os campos do formulário com os dados do usuário, se existirem
 function iniciar() {
     usuario = JSON.parse(localStorage.getItem("usuario"))
     if (usuario) {
@@ -36,7 +35,7 @@ function iniciar() {
     }
 
 }
-
+// Atualiza os dados do usuário no localStorage
 function actualizarDados() {
     //garantir que seja actualizados somente os campus necessarios
     usuarioCorrente = JSON.parse(localStorage.getItem("usuario"))
@@ -94,6 +93,8 @@ function validacao(element) {
     return false;
 }
 
+
+// Verifica a validação para a atualização dos dados do usuário
 function verificarAvalidacaoParaAactualizacao() {
     let meuFormulario = document.getElementById('meuFormulario');
     let inputs = meuFormulario.querySelectorAll('input:not([type="file"]),textarea');
@@ -103,8 +104,7 @@ function verificarAvalidacaoParaAactualizacao() {
             valido=false;
         }
     });
-
-    console.log(valido)
+    
     if(valido){
         actualizarDados();
     }
