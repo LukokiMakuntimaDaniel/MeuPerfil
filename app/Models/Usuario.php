@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Validation\Rule;
 
 class Usuario extends Model
@@ -23,6 +24,8 @@ class Usuario extends Model
         'biografia' => 'required|string|max:500',
     ];
 
-
+    public function morada():HasOne{
+        return $this->hasOne(Morada::class);
+    }
 
 }
