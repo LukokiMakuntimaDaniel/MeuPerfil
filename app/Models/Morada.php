@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Morada extends Model
 {
@@ -22,4 +23,8 @@ class Morada extends Model
         'bairro'=>'required|string|max:50',
         'estado'=>'required|string|max:50',
     ];
+
+    public function usuario():HasOne{
+        return $this->hasOne(Usuario::class);
+    }
 }
