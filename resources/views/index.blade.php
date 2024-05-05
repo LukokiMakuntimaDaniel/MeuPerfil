@@ -78,7 +78,7 @@
 
     <div class="meuForm animated" style="animation-name: slideLeft;">
         <h2>Edite os Seus Dados</h2>
-        <form id="meuFormulario" >
+        <form id="meuFormulario">
             <div class="row">
                 <div class="col-sm-6">
                     <label for="" class="form-label">Nome Completo: </label>

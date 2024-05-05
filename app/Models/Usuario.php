@@ -17,15 +17,18 @@ class Usuario extends Model
         'biografia'
     ];
 
-    public static $rules = [
-        'nome' => ['required', 'string', 'max:255', Rule::regex('/^[a-zA-ZÀ-ú\s]+$/u')],
-        'telefone' => 'required|string|max:20',
-        'idade' => 'required|integer|min:0',
-        'biografia' => 'required|string|max:500',
-    ];
-
-    public function morada():HasOne{
-        return $this->hasOne(Morada::class);
+    public static function rules()
+    {
+        return [
+            'nome' => ['required', 'string', 'max:255', Rule::regex('/^[a-zA-ZÀ-ú\s]+$/u')],
+            'telefone' => 'required|string|max:20',
+            'idade' => 'required|integer|min:0',
+            'biografia' => 'required|string|max:500',
+        ];
     }
 
+    public function morada(): HasOne
+    {
+        return $this->hasOne(Morada::class);
+    }
 }
