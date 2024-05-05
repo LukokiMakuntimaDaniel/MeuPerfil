@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+
+
+Route::prefix("usuario")->group(function(){
+    Route::post('/salvar', [UsuarioController::class, 'store'])->name("usuario.store");
+    Route::get('/', [UsuarioController::class, 'index']);
+    Route::put('/actualizar', [UsuarioController::class, 'update'])->name("usuario.salvar");
+    Route::delete('deletar/{id}', [UsuarioController::class, 'destroy'])->name("usuario.deletar");;
+});
+
+
