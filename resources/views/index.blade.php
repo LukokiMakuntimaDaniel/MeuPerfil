@@ -122,11 +122,11 @@
 
         <h2>Edite os Seus Dados</h2>
         @if($meusDados)
-        <form id="meuFormulario" action="{{route('usuario.actualizar',['id' => $meusDados->id])}}" method="post">
+        <form id="meuFormulario" action="{{route('usuario.actualizar',['id' => $meusDados->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             @else
-            <form id="meuFormulario" action="{{route('usuario.salvar')}}" method="post">
+            <form id="meuFormulario" action="{{route('usuario.salvar')}}" method="post" enctype="multipart/form-data">
                 @csrf
             @endif
                 <div class="row">
@@ -178,7 +178,7 @@
 
                 <div>
                     <label for="img_p" class="minha_imagem"><i class="fa-regular fa-image"></i>Escolha uma Imagem</label>
-                    <input type="file" class="buscarImagem" id="img_p">
+                    <input type="file" class="buscarImagem" id="img_p" name="imagem">
                 </div>
 
                 <button class="shadow-none btn_salvar" onclick="verificarAvalidacaoParaAactualizacao()" type="button">Salvar</button>
