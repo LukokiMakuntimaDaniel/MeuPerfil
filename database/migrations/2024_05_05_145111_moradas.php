@@ -19,6 +19,7 @@ class Moradas extends Migration
             $table->string("rua",50);
             $table->string("bairro",50);
             $table->string("estado",50);
+            $table->timestamps();
             $table->foreign("usuario_id")->references("id")->on("usuarios");
         });
     }

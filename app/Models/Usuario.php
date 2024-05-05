@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Validation\Rule;
 
 class Usuario extends Model
 {
@@ -20,12 +19,13 @@ class Usuario extends Model
     public static function rules()
     {
         return [
-            'nome' => ['required', 'string', 'max:255', Rule::regex('/^[a-zA-ZÀ-ú\s]+$/u')],
+            'nome' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZÀ-ú\s]+$/u'],
             'telefone' => 'required|string|max:20',
             'idade' => 'required|integer|min:0',
             'biografia' => 'required|string|max:500',
         ];
     }
+
 
     public function morada(): HasOne
     {

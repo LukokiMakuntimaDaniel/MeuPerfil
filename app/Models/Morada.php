@@ -16,12 +16,12 @@ class Morada extends Model
         'estado'
     ];
 
-    public static $rules = [
-        'usuario_id'=>'required|integer',
-        'rua'=>'required|string|max:50',
-        'bairro'=>'required|string|max:50',
-        'estado'=>'required|string|max:50',
-    ];
-
-
+    public static function rules()
+    {
+        return [
+            'rua' => 'required|string|max:50',
+            'bairro' => 'required|string|max:50',
+            'estado' => 'required|string|max:50',
+        ];
+    }
 }

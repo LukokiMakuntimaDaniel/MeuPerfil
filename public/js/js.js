@@ -1,5 +1,6 @@
 iniciar();
 
+
 // Inicializa os campos do formulário com os dados do usuário, se existirem
 function iniciar() {
     usuario = JSON.parse(localStorage.getItem("usuario"))
@@ -105,8 +106,8 @@ function verificarAvalidacaoParaAactualizacao() {
     });
 
     if(valido){
-
-        actualizarDados();
+        document.getElementById('meuFormulario').submit();
+        //actualizarDados();
     }
 
 }

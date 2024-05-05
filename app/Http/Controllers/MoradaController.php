@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Morada;
 use Illuminate\Http\Request;
 
 class MoradaController extends Controller
@@ -32,9 +33,16 @@ class MoradaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $usuario_id)
     {
-        //
+        try {
+            $dadosValidados = $request->validate(Morada::rules());
+            $dadosValidados['usuario_id'] = $usuario_id;
+            $morada=Morada::create($dadosValidados);
+            return $morada;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**

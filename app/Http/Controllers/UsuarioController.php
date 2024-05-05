@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class UsuarioController extends Controller
 {
@@ -15,7 +16,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $meusDados = Usuario::with(['morada'])->first();
-        return view("index",compact('meusDados'));
+        return view("index", compact('meusDados'));
     }
 
     /**
@@ -36,8 +37,17 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-
-        //
+        try {
+            $validatedData = $request->validate(Usuario::rules());
+            $usuario = Usuario::create($validatedData);
+            $moradaController = new MoradaController();
+            $moradaController->store($request,$usuario->id);
+            $meusDados = Usuario::with(['morada'])->first();
+            return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados',$meusDados);
+        } catch (\Throwable $th) {
+             $meusDados = Usuario::with(['morada'])->first();
+             return Redirect::back()->with('error', 'Ocorreu um erro ao salvar o usuario verifique os dados.')->with('meusDados',$meusDados);
+        }
     }
 
     /**
