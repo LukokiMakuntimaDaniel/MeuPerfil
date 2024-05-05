@@ -122,15 +122,13 @@
 
         <h2>Edite os Seus Dados</h2>
         @if($meusDados)
-        <form id="meuFormulario" action="{{route('usuario.actualizar')}}" method="put">
+        <form id="meuFormulario" action="{{route('usuario.actualizar',['id' => $meusDados->id])}}" method="post">
             @csrf
             @method('PUT')
             @else
             <form id="meuFormulario" action="{{route('usuario.salvar')}}" method="post">
                 @csrf
-                @endif
-
-
+            @endif
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="" class="form-label">Nome Completo: </label>
@@ -154,7 +152,7 @@
 
                     <div class="col-md-6">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)" name="bairro" value="{{ (isset($meusDados) && isset($meusDados->bairro) ) ? $meusDados->morada->bairro : '' }}">
+                        <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)" name="bairro" value="{{ (isset($meusDados) && isset($meusDados->morada) ) ? $meusDados->morada->bairro : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
                 </div>
@@ -162,7 +160,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="estado" class="form-label">Estado: </label>
-                        <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)" name="estado" value="{{ (isset($meusDados) && isset($meusDados->estado) ) ? $meusDados->morada->estado : '' }}">
+                        <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)" name="estado" value="{{ (isset($meusDados) && isset($meusDados->morada) ) ? $meusDados->morada->estado : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
 

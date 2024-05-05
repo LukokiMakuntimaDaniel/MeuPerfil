@@ -38,15 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         try {
-            $validatedData = $request->validate(Usuario::rules());
-            $usuario = Usuario::create($validatedData);
+            $dadosValidados = $request->validate(Usuario::rules());
+            $usuario = Usuario::create($dadosValidados);
             $moradaController = new MoradaController();
-            $moradaController->store($request,$usuario->id);
+            $moradaController->store($request, $usuario->id);
             $meusDados = Usuario::with(['morada'])->first();
-            return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados',$meusDados);
+            return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados', $meusDados);
         } catch (\Throwable $th) {
-             $meusDados = Usuario::with(['morada'])->first();
-             return Redirect::back()->with('error', 'Ocorreu um erro ao salvar o usuario verifique os dados.')->with('meusDados',$meusDados);
+            $meusDados = Usuario::with(['morada'])->first();
+            return Redirect::back()->with('error', 'Ocorreu um erro ao actualizar o usuario verifique os dados.')->with('meusDados', $meusDados);
         }
     }
 
@@ -81,7 +81,18 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $dadosValidados = $request->validate(Usuario::rules());
+            $usuario = Usuario::find($id);
+            $usuario->update($dadosValidados);
+            $moradaController = new MoradaController();
+            $moradaController->update($request, $usuario->id);
+            $meusDados = Usuario::with(['morada'])->first();
+            return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados', $meusDados);
+        } catch (\Throwable $th) {
+            $meusDados = Usuario::with(['morada'])->first();
+            return Redirect::back()->with('error', 'Ocorreu um erro ao actualizar o usuario verifique os dados.')->with('meusDados', $meusDados);
+        }
     }
 
     /**

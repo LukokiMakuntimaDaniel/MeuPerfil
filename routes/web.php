@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::prefix("usuario")->group(function(){
     Route::post('/salvar', [UsuarioController::class, 'store'])->name("usuario.salvar");
     Route::get('/', [UsuarioController::class, 'index']);
-    Route::put('/actualizar', [UsuarioController::class, 'update'])->name("usuario.actualizar");
+    Route::put('/actualizar/{id}', [UsuarioController::class, 'update'])->name("usuario.actualizar");
     Route::delete('deletar/{id}', [UsuarioController::class, 'destroy'])->name("usuario.deletar");;
 });
 

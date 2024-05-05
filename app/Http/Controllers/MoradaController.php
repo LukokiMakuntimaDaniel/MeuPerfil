@@ -38,7 +38,7 @@ class MoradaController extends Controller
         try {
             $dadosValidados = $request->validate(Morada::rules());
             $dadosValidados['usuario_id'] = $usuario_id;
-            $morada=Morada::create($dadosValidados);
+            $morada = Morada::create($dadosValidados);
             return $morada;
         } catch (\Throwable $th) {
             throw $th;
@@ -76,7 +76,14 @@ class MoradaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $dadosValidados = $request->validate(Morada::rules());
+            $morada = Morada::where("usuario_id", $id)->first();
+            $morada->update($dadosValidados);
+            return $morada;
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
