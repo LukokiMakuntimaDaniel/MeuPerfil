@@ -19,6 +19,7 @@ class Usuarios extends Migration
             $table->string('telefone',20);
             $table->integer('idade');
             $table->string('biografia',500);
+            $table->string('nomeImagem',500);
             $table->timestamps();
         });
     }
