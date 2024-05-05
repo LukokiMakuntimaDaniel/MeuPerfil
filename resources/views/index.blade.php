@@ -99,7 +99,11 @@
     <section class="biografia animated" style="animation-name: slideLeft;">
         <h2>Biografia</h2>
         <p id="biografia">
+            @if(isset($meusDados) && isset($meusDados->biografia))
+            {{$meusDados->biografia}}
+            @else
             Minha Biografia
+            @endif
         </p>
     </section>
 
@@ -130,13 +134,13 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="" class="form-label">Nome Completo: </label>
-                        <input type="text" onkeyup="validacao(this)" class="form-control shadow-none" placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/" name="nome">
+                        <input type="text" onkeyup="validacao(this)" class="form-control shadow-none" placeholder="Nome do Usuario*" id="nomeInput" pattern="/^[A-Za-z]+\s[A-Za-z]+$/" name="nome" value="{{ (isset($meusDados) && isset($meusDados->nome) ) ? $meusDados->nome : '' }}">
                         <div class="invalid-feedback">Precisamos nome válido e completo</div>
                     </div>
 
                     <div class="col-sm-6">
                         <label for="" class="form-label">Idade</label>
-                        <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput" onkeyup="validacao(this)" name="idade">
+                        <input type="number" class="form-control shadow-none" placeholder="Idade*" id="idadeInput" onkeyup="validacao(this)" name="idade" value="{{ (isset($meusDados) && isset($meusDados->idade) ) ? $meusDados->idade : '' }}">
                         <div class="invalid-feedback">Idade Não Pode estar vazia</div>
                     </div>
                 </div>
@@ -144,13 +148,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="rua" class="form-label">Rua: </label>
-                        <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput" onkeyup="validacao(this)" name="rua">
+                        <input type="text" placeholder="Rua*" class="form-control shadow-none" id="ruaInput" onkeyup="validacao(this)" name="rua" value="{{ (isset($meusDados) && isset($meusDados->morada) ) ? $meusDados->morada->rua : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
 
                     <div class="col-md-6">
                         <label for="bairro" class="form-label">Bairro</label>
-                        <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)" name="bairro">
+                        <input type="text" placeholder="Bairro*" class="form-control shadow-none" id="bairroInput" onkeyup="validacao(this)" name="bairro" value="{{ (isset($meusDados) && isset($meusDados->bairro) ) ? $meusDados->morada->bairro : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
                 </div>
@@ -158,19 +162,19 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="estado" class="form-label">Estado: </label>
-                        <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)" name="estado">
+                        <input type="text" placeholder="Estado*" class="form-control" id="estadoInput" onkeyup="validacao(this)" name="estado" value="{{ (isset($meusDados) && isset($meusDados->estado) ) ? $meusDados->morada->estado : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
 
                     <div class="col-md-6">
                         <label for="telemovel" class="form-label">Telemovel</label>
-                        <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)" name="telefone" />
+                        <input type="number" class="form-control shadow-none" placeholder="Telemovel*" id="telemovelInput" onkeyup="validacao(this)" name="telefone" value="{{ (isset($meusDados) && isset($meusDados->telefone) ) ? $meusDados->telefone : '' }}">
                         <div class="invalid-feedback">Campo Obrigatório</div>
                     </div>
                 </div>
 
                 <div class="col-md-6 text-center">
-                    <textarea class="form-control" placeholder="Biografia*" id="biografiaInput" onkeyup="validacao(this)" name="biografia"></textarea>
+                    <textarea class="form-control" placeholder="Biografia*" id="biografiaInput" onkeyup="validacao(this)" name="biografia">@if(isset($meusDados) && isset($meusDados->biografia)){{$meusDados->biografia}} @endif</textarea>
                     <div class="invalid-feedback">Campo Obrigatório</div>
                 </div>
 
