@@ -17,7 +17,7 @@ class UsuarioController extends Controller
     public function index()
     {
         $meusDados = Usuario::with(['morada'])->first();
-        return view("index", compact('meusDados'));
+        return view("paginas.index", compact('meusDados'));
     }
 
     /**
