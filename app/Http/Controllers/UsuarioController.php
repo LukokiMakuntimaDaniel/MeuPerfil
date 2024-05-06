@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\File;
 
 class UsuarioController extends Controller
 {
@@ -81,11 +82,37 @@ class UsuarioController extends Controller
             $usuario->update($dadosValidados);
             $moradaController = new MoradaController();
             $moradaController->update($request, $usuario->id);
+
+            $caminhoImagem = public_path('imagemUser');
+            if ($request->hasFile('imagem')) {
+                $imagem = $request->file('imagem');
+                $caminhoCompletoArquivo = $caminhoImagem . '/' . $usuario->nomeImagem;
+                $this->deletarOarquivoImagem($caminhoCompletoArquivo);
+                $nomeImagem = $this->actualizarOnomeDaImagemApoisOcadastro($usuario->id, $imagem->getClientOriginalExtension());
+                $imagem->move($caminhoImagem, $nomeImagem);
+            }
             $meusDados = Usuario::with(['morada'])->first();
             return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados', $meusDados);
         } catch (\Throwable $th) {
             $meusDados = Usuario::with(['morada'])->first();
             return Redirect::back()->with('error', 'Ocorreu um erro ao actualizar o usuario verifique os dados.')->with('meusDados', $meusDados);
+        }
+    }
+
+    public function deletarOarquivoImagem($arquivo)
+    {
+        try {
+            if (File::exists($arquivo)) {
+                if (File::delete($arquivo)) {
+                    return true;
+                } else {
+                    throw new \Exception('Falha ao excluir o arquivo.');
+                }
+            } else {
+                throw new \Exception('O arquivo não existe.');
+            }
+        } catch (\Throwable $th) {
+            throw $th;
         }
     }
 }
