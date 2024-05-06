@@ -23,7 +23,7 @@
     <header class="header">
         <div class="img">
             <div class="borderImg">
-                <img src="{{asset('imgs/usuarioPadaoImg.jpg')}}" alt="" class="pImg" id="imagem" style="width: 100%; height: 100%; object-fit: cover;" />
+                <img src="{{ isset($meusDados) && $meusDados->nomeImagem ? asset('imagemUser/' . $meusDados->nomeImagem) : asset('imgs/usuarioPadaoImg.jpg') }}" alt="" class="pImg" id="imagem" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
         </div>
 
@@ -128,7 +128,7 @@
             @else
             <form id="meuFormulario" action="{{route('usuario.salvar')}}" method="post" enctype="multipart/form-data">
                 @csrf
-            @endif
+                @endif
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="" class="form-label">Nome Completo: </label>
