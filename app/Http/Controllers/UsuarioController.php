@@ -32,6 +32,14 @@ class UsuarioController extends Controller
             $usuario = Usuario::create($dadosValidados);
             $moradaController = new MoradaController();
             $moradaController->store($request, $usuario->id);
+
+            $caminhoImagem = public_path('imagemUser');
+            if ($request->hasFile('imagem')) {
+                $imagem = $request->file('imagem');
+                $nomeImagem = $this->actualizarOnomeDaImagemApoisOcadastro($usuario->id, $imagem->getClientOriginalExtension());
+                $imagem->move($caminhoImagem, $nomeImagem);
+            }
+
             $meusDados = Usuario::with(['morada'])->first();
             return Redirect::back()->with('success', 'Dados Actualizados com sucesso verifique a sessão dos dados.')->with('meusDados', $meusDados);
         } catch (\Throwable $th) {
@@ -40,6 +48,22 @@ class UsuarioController extends Controller
         }
     }
 
+    /**
+     * actualizar o nome da imagem juntando o id o nome imagem.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+
+
+    public function actualizarOnomeDaImagemApoisOcadastro($id, $estensao)
+    {
+        $usuario = Usuario::find($id);
+        $usuario->nomeImagem = "imagem" . $id . "." . $estensao;
+        $usuario->update();
+        return "imagem" . $id . "." . $estensao;;
+    }
 
 
     /**
