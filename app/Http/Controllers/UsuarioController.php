@@ -99,6 +99,11 @@ class UsuarioController extends Controller
         }
     }
 
+    /*
+        ao actualizar os dados do estudante caso ele quiser
+        actualizar a imagem está função ira eliminar a imagem passada
+        de modo a garantir o expaço com informações util
+    */
     public function deletarOarquivoImagem($arquivo)
     {
         try {
@@ -106,10 +111,10 @@ class UsuarioController extends Controller
                 if (File::delete($arquivo)) {
                     return true;
                 } else {
-                    throw new \Exception('Falha ao excluir o arquivo.');
+                    return false;
                 }
             } else {
-                throw new \Exception('O arquivo não existe.');
+                return false;
             }
         } catch (\Throwable $th) {
             throw $th;
